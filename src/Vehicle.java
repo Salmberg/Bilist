@@ -23,14 +23,10 @@ abstract public class Vehicle {
 
     void drive() {
 
-
-
     }
 
     public void setDriver(Driver driver){
 
-
     }
-
 
 }

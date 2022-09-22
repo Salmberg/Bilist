@@ -1,8 +1,14 @@
 public class Car extends Vehicle {
 
-    public String type;
+    String type;
 
-    public Driver driver;
+    Driver driver;
+
+    int milesDriven = 10;
+
+    int milesToGo = 100;
+
+    boolean vroom = false;
 
     public Car() {
         super();
@@ -22,14 +28,15 @@ public class Car extends Vehicle {
         super.setType(type);
     }
 
-    void drive() {
-        if (driver == null) {
+    public void drive() {
+        if (!vroom) {
             System.out.println(getType() + " didn't drive - there's no driver!");
 
         } else {
-            System.out.println(getType() + " drove 10 miles, 90  miles to go ");
-
+            milesToGo = milesToGo - milesDriven;
+            System.out.println("Car drove  " + milesDriven + " miles " + milesToGo + " to go ");
         }
+
     }
 
 
@@ -41,7 +48,7 @@ public class Car extends Vehicle {
 
         } else if (driver.age >= 18) {
             System.out.println("Driver changed to " + driver.name);
-
+            vroom = true;
         }
 
     }

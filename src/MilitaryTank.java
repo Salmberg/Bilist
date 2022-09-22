@@ -4,6 +4,12 @@ public class MilitaryTank extends Vehicle {
 
     public Driver driver;
 
+    int milesDriven = 5;
+
+    int milesToGo = 2000;
+
+    boolean vroom = false;
+
 
     public MilitaryTank() {
         super();
@@ -16,14 +22,13 @@ public class MilitaryTank extends Vehicle {
         super(type);
     }
 
-    void drive() {
-        if (driver == null) {
+    public void drive() {
+        if (!vroom) {
             System.out.println(getType() + " didn't drive - there's no driver!");
 
         } else {
-
-            System.out.println(getType() +" drove 5 miles - 1995 miles to go");
-
+            milesToGo = milesToGo - milesDriven;
+            System.out.println("Tank drove  " + milesDriven + " miles " + milesToGo + " to go ");
 
         }
 
@@ -31,11 +36,12 @@ public class MilitaryTank extends Vehicle {
 
     public void setDriver(Driver driver) {
         if (driver.age <= 25) {
-            System.out.println("Driver not changed! " + driver.name + " is " +  driver.age  + " driver must be 18 or older to drive car");
+            System.out.println("Driver not changed! " + driver.name + " is " + driver.age + " driver must be 18 or older to drive car");
 
 
         } else if (driver.age >= 25) {
             System.out.println("Driver changed to " + driver.name);
+            vroom = true;
 
         }
 
